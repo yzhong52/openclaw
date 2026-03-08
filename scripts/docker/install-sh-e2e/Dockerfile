@@ -9,7 +9,8 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 COPY install-sh-common/version-parse.sh /usr/local/install-sh-common/version-parse.sh
-COPY --chmod=755 run.sh /usr/local/bin/openclaw-install-e2e
+COPY run.sh /usr/local/bin/openclaw-install-e2e
+RUN chmod +x /usr/local/bin/openclaw-install-e2e
 
 RUN useradd --create-home --shell /bin/bash appuser
 USER appuser

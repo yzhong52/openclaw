@@ -20,7 +20,8 @@ RUN apt-get update \
     xvfb \
   && rm -rf /var/lib/apt/lists/*
 
-COPY --chmod=755 scripts/sandbox-browser-entrypoint.sh /usr/local/bin/openclaw-sandbox-browser
+COPY scripts/sandbox-browser-entrypoint.sh /usr/local/bin/openclaw-sandbox-browser
+RUN chmod +x /usr/local/bin/openclaw-sandbox-browser
 
 RUN useradd --create-home --shell /bin/bash sandbox
 USER sandbox
